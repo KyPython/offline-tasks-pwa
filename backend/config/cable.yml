@@ -9,6 +9,8 @@ test:
   adapter: test
 
 production:
-  adapter: solid_cable
-  polling_interval: 0.1.seconds
-  message_retention: 1.day
+  adapter: async
+  # Can switch to solid_cable after migrations run:
+  # adapter: solid_cable
+  # polling_interval: 0.1.seconds
+  # message_retention: 1.day
