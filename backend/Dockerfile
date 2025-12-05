@@ -71,5 +71,6 @@ COPY --chown=rails:rails --from=build /rails /rails
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start server via Puma
-EXPOSE 80
-CMD ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "80"]
+# Render sets PORT automatically, Puma will use it from config/puma.rb
+EXPOSE ${PORT:-80}
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
