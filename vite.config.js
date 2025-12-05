@@ -16,7 +16,15 @@ export default defineConfig({
               networkTimeoutSeconds: 10,
               cacheableResponse: {
                 statuses: [0, 200]
-              }
+              },
+              plugins: [
+                {
+                  requestWillFetch: async ({ request }) => {
+                    // Background sync will be handled by the service worker
+                    return request;
+                  }
+                }
+              ]
             }
           },
           {
@@ -30,13 +38,7 @@ export default defineConfig({
               }
             }
           }
-        ],
-        backgroundSync: {
-          name: 'task-sync',
-          options: {
-            maxRetentionTime: 24 * 60 // 24 hours
-          }
-        }
+        ]
       },
       manifest: {
         name: 'Offline Tasks PWA',
