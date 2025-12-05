@@ -23,22 +23,6 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ],
-      "has": [
-        {
-          "type": "header",
-          "key": "x-matched-path",
-          "value": ".*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)$"
-        }
-      ]
     }
   ]
 }
