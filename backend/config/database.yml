@@ -86,4 +86,9 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV.fetch("DATABASE_URL") { "postgres://localhost/backend_production" } %>
+  <% if ENV["DATABASE_URL"].present? %>
+  url: <%= ENV["DATABASE_URL"] %>
+  <% else %>
+  # DATABASE_URL not set - using default (should be set by Render)
+  url: postgres://localhost/backend_production
+  <% end %>
