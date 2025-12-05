@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+backend/vendor/
+
+# Build outputs
+dist/
+backend/tmp/
+backend/log/*.log
+backend/storage/
+
+# Environment
+.env
+.env.local
+backend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Rails
+backend/config/master.key
+backend/config/credentials/*.key
+
+# Database
+*.sqlite3
+*.sqlite3-journal
+
